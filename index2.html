@@ -128,7 +128,7 @@
 
     <div class="buttons">
       <button class="yes" onclick="sayYes()">Yes 💖</button>
-      <button class="no" ontouchstart="moveButton()" onclick="moveButton()">No 😢</button>
+      <button class="no" ontouchstart="moveButton(); changeText(this)" onclick="moveButton(); changeText(this)">No 😢</button>
     </div>
 
     <div id="response"></div>
@@ -136,14 +136,18 @@
 
   <script>
     function sayYes() {
-      document.getElementById("response").innerHTML = "Yay! It’s a date 😊 See you soon!";
+        document.getElementById("response").innerHTML = "Yay! It’s a date 😊 See you soon!";
     }
 
     function moveButton() {
-      const button = document.querySelector('.no');
-      const x = Math.random() * 150 - 75;
-      const y = Math.random() * 150 - 75;
-      button.style.transform = `translate(${x}px, ${y}px)`;
+        const button = document.querySelector('.no');
+        const x = Math.random() * 150 - 75;
+        const y = Math.random() * 150 - 75;
+        button.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function changeText(btn) {
+        btn.innerHTML = "kennat be 😆";
     }
   </script>
 </body>
