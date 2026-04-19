@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>A Small Question For You</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.45);
+      padding: 25px 20px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .yes {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .no {
+      background-color: #f44336;
+      color: white;
+      position: relative;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    #response {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    /* Desktop enhancements */
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      .buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      button {
+        width: auto;
+        padding: 12px 20px;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hello there! 😊</h1>
+    <p>
+      I’ve really loved getting to know you, and I’d love the chance to know you even more. 
+      There’s something about you that makes me curious—in a good way.
+      
+      So I was wondering...
+    </p>
+
+    <h2>Would you like to go on a date with me? Maybe we could grab coffee or dinner? 💕</h2>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💖</button>
+      <button class="no" ontouchstart="moveButton()" onclick="moveButton()">No 😢</button>
+    </div>
+
+    <div id="response"></div>
+  </div>
+
+  <script>
+    function sayYes() {
+      document.getElementById("response").innerHTML = "Yay! It’s a date 😊 See you soon!";
+    }
+
+    function moveButton() {
+      const button = document.querySelector('.no');
+      const x = Math.random() * 150 - 75;
+      const y = Math.random() * 150 - 75;
+      button.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+</body>
+</html>
